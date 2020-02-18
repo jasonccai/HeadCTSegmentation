@@ -19,4 +19,6 @@ Steps:
 5. Enter "t" to train the model (takes ~5 mins on a GPU).
 6. Enter "p" to perform prediction on the test volume.
 
-If you do not have access to hardware for training and would like to see how this demo model performs on the test volume, the model's weights can be downloaded from xxx. Please extract this archive to the CTBrainSegmentation-master folder.
+If you do not have access to hardware for training and would like to see how this demo model performs on the test volume, the model's weights can be downloaded from https://drive.google.com/file/d/1xpuFGoQgGUdjejKDhBbXoj6oWfckEDcy/view?usp=sharing. Please extract this archive to the CTBrainSegmentation-master folder.
+
+![Sample Predictions](/Sample_Predictions.jpg)
