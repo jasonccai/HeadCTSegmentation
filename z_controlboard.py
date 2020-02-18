@@ -12,7 +12,7 @@
 
 print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk.")
 print("Train: Trains on sorted data.")
-print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder. Requires a weight file from the 'results_folder'.")
+print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
 flag = input("Sort, Train or Predict? (s/t/p): ")
 
 if flag == "t":
@@ -53,6 +53,10 @@ root = os.path.dirname(os.path.realpath(__file__))
 images = "image_data"
 labels = "mask_data"
 preds = "image_data_predict"
+try:
+    os.mkdir(os.path.join(root, "results_folder"))
+except FileExistsError:
+    pass
 results = "results_folder"
 timenow = datetime.datetime.now().strftime('%m_%d_%H_%M_%S')
 foldername = timenow + "_" + testname
@@ -117,7 +121,7 @@ else:
     # instantiate callbacks
     csv_logger = CSVLogger(os.path.join(savefolder, "Result.csv"))
     # lr_reducer = ReduceLROnPlateau(monitor='loss', min_delta=0.01, factor=0.5, verbose=1, cooldown=5, patience=25, min_lr=1e-10)
-    best_model = ModelCheckpoint(checkpointPath, verbose=1, monitor='loss', save_best_only=True, period=10, mode='auto', save_weights_only=True)
+    best_model = ModelCheckpoint(checkpointPath, verbose=1, monitor='loss', save_best_only=True, period=epochs, mode='auto', save_weights_only=True)
     # early_stopping = EarlyStopping(monitor='val_loss', min_delta=0.01, patience=3, verbose=1, mode='auto', baseline=None, restore_best_weights=True)
     # tensorboard = TensorBoard(log_dir=os.path.join(root, 'tensorboard_logs', foldername))
 
@@ -142,7 +146,7 @@ else:
     if TVsplit:
         model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,
                             callbacks = [csv_logger, best_model], validation_data = V,
-                            max_queue_size = 10, workers = 4, use_multiprocessing = True)
+                            max_queue_size = 10, workers = 1, use_multiprocessing = False)
     else:
         model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,
                     callbacks = [csv_logger, best_model],
