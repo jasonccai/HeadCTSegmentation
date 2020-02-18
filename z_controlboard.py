@@ -10,6 +10,8 @@
 ##  For peer review only.                                                       ##
 ##################################################################################
 
+import sys
+
 print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk.")
 print("Train: Trains on sorted data.")
 print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
@@ -20,11 +22,14 @@ if flag == "t":
     sortimg = False
     weights = ""
     testname = input("Enter a name for this training session: ")
+    if "TRAIN" in testname:
+        print("'TRAIN' is reserved by the script. Please choose a different filename.")
+        sys.exit()
 elif flag == "p":
     predict= True
     sortimg = False
     weights = input("Enter full path to model weights: ")
-    slashpos = weights.find("TRAIN/")
+    slashpos = weights.find("TRAIN")
     testname = weights[slashpos+6:-14]
 elif flag == "s":
     predict = False
@@ -41,11 +46,9 @@ import tensorflow as tf
 from tensorflow.keras.callbacks import CSVLogger, ModelCheckpoint, ReduceLROnPlateau, EarlyStopping, TensorBoard
 from tensorflow.keras.optimizers import Adam
 import os
-import numpy as np
 import datetime 
 from tensorflow.keras.utils import get_custom_objects
 from functools import partial
-import sys
 
 ##################################################################################
 
