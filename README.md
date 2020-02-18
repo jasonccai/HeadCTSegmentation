@@ -14,4 +14,4 @@ Steps:
    `pip install tensorflow` or
    `pip install tensorflow-gpu` and
    `pip install nibabel`
-3. Run z_controlboard.py
+3. Run `python /path/to/folder/z_controlboard.py`
