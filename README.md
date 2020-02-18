@@ -13,5 +13,5 @@ Steps:
 2. Install Tensorflow >=2.0 and Nibabel >= 3.0.0 in your conda environment by typing the following into your terminal:
    `pip install tensorflow` or\
    `pip install tensorflow-gpu` and\
-   `pip install nibabel`\
+   `pip install nibabel`
 3. Run `python /path/to/folder/z_controlboard.py`
