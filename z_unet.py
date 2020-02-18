@@ -81,6 +81,6 @@ def unet(nb_classes, savefolder, flag):
         model_json = model.to_json()
         with open(savename + ".json", "w+") as json_file:
             json_file.write(model_json)
-        plot_model(model, to_file = savename + ".png")
+#        plot_model(model, to_file = savename + ".png")
     
     return model

@@ -61,6 +61,7 @@ results = "results_folder"
 timenow = datetime.datetime.now().strftime('%m_%d_%H_%M_%S')
 foldername = timenow + "_" + testname
 savefolder = os.path.join(root, results, foldername)
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 if not predict and not sortimg:
     savefolder = savefolder + "_TRAIN"
     os.mkdir(savefolder)
