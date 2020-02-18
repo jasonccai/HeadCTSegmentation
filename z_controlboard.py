@@ -13,32 +13,37 @@
 print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk.")
 print("Train: Trains on sorted data.")
 print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
-flag = input("Sort, Train, Predict, Exit? (s/t/p/x): ")
 
-if flag == "t":
-    predict = False
-    sortimg = False
-    weights = ""
-    testname = input("Enter a name for this training session: ")
-    if "TRAIN" in testname:
-        print("'TRAIN' is reserved by the script. Please choose a different filename.")
+while True:
+    flag = input("Sort, Train, Predict, Exit? (s/t/p/x): ")
+    if flag == "t":
+        predict = False
+        sortimg = False
+        weights = ""
+        testname = input("Enter a name for this training session: ")
+        break
+    elif flag == "p":
+        predict= True
+        sortimg = False
+        weights = input("Enter full path to model weights: ")
+        slashpos = weights.find("TRAIN")
+        testname = weights[slashpos+6:-14]
+        break
+    elif flag == "s":
+        predict = False
+        sortimg = True
+        weights = ""
+        testname = ""
+        break
+    elif flag == "x":
         raise SystemExit
-elif flag == "p":
-    predict= True
-    sortimg = False
-    weights = input("Enter full path to model weights: ")
-    slashpos = weights.find("TRAIN")
-    testname = weights[slashpos+6:-14]
-elif flag == "s":
-    predict = False
-    sortimg = True
-    weights = ""
-    testname = ""
-else:
-    print("Please enter an option.")
-    exit()
+    else:
+        continue
 if ' ' in weights:
     print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
+    raise SystemExit
+if "TRAIN" in testname:
+    print("'TRAIN' is reserved by the script. Please choose a different filename.")
     raise SystemExit
 
 import z_unetprepper as prepper
