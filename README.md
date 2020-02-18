@@ -15,3 +15,5 @@ Steps:
    `pip install tensorflow-gpu` and\
    `pip install nibabel`
 3. Run `python /path/to/folder/z_controlboard.py`
+
+If no hardware is available to perform training, model weights for this demonstration can be downloaded from xxx. Please extract the folders into the directory where the python scripts are located.
