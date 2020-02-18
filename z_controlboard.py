@@ -37,6 +37,9 @@ elif flag == "s":
 else:
     print("Please enter an option.")
     exit()
+if ' ' in weights:
+    print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
+    raise SystemExit
 
 import z_unetprepper as prepper
 from z_unet import unet
@@ -72,9 +75,6 @@ if not predict and not sortimg:
 if predict:
     savefolder = savefolder + "_PREDICT"
     os.mkdir(savefolder)
-if ' ' in weights:
-    print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
-    raise SystemExit
 
 ##################################################################################
 
