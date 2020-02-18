@@ -5,8 +5,6 @@ import os
 import shutil
 from tensorflow.keras.utils import to_categorical, Sequence
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import random
-import sys
 
 def sort(root, images, labels, TVsplit, nb_classes):
     # compare files in "image_data" and "mask_data" folders to ensure paired data
@@ -15,7 +13,7 @@ def sort(root, images, labels, TVsplit, nb_classes):
     extralabelfile = filecmp.dircmp(os.path.join(root, labels), os.path.join(root, images)).left_only
     if extraimagefile or extralabelfile:
         print("Extra image files: ",extraimagefile, "\n", "Missing image files: ", extralabelfile, "\n", "Now exiting.")
-        sys.exit()
+        raise SystemExit
         
     # prepare folder structure
     try:

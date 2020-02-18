@@ -10,8 +10,6 @@
 ##  For peer review only.                                                       ##
 ##################################################################################
 
-import sys
-
 print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk.")
 print("Train: Trains on sorted data.")
 print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
@@ -24,7 +22,7 @@ if flag == "t":
     testname = input("Enter a name for this training session: ")
     if "TRAIN" in testname:
         print("'TRAIN' is reserved by the script. Please choose a different filename.")
-        sys.exit()
+        raise SystemExit
 elif flag == "p":
     predict= True
     sortimg = False
@@ -76,7 +74,7 @@ if predict:
     os.mkdir(savefolder)
 if ' ' in weights:
     print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
-    sys.exit()
+    raise SystemExit
 
 ##################################################################################
 
