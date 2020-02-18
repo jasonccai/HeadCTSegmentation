@@ -21,4 +21,4 @@ Steps:
 
 If you do not have access to hardware for training and would like to see how this demo model performs on the test volume, the model's weights can be downloaded from https://drive.google.com/file/d/1xpuFGoQgGUdjejKDhBbXoj6oWfckEDcy/view?usp=sharing. Please extract this archive to the CTBrainSegmentation-master folder.
 
-![Sample Predictions](/Sample_Predictions.jpg)
+![Sample Predictions](https://github.com/jasonccai/CTBrainSegmentation/blob/master/Sample%20Performance.jpg)
