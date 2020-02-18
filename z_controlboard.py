@@ -29,6 +29,7 @@ elif flag == "p":
 elif flag == "s":
     predict = False
     sortimg = True
+    weights = ""
     testname = ""
 else:
     print("Please enter an option.")
@@ -44,6 +45,7 @@ import numpy as np
 import datetime 
 from tensorflow.keras.utils import get_custom_objects
 from functools import partial
+import sys
 
 ##################################################################################
 
@@ -69,6 +71,9 @@ if not predict and not sortimg:
 if predict:
     savefolder = savefolder + "_PREDICT"
     os.mkdir(savefolder)
+if ' ' in weights:
+    print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
+    sys.exit()
 
 ##################################################################################
 
