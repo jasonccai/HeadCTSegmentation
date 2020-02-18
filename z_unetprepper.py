@@ -35,7 +35,7 @@ def sort(root, images, labels, TVsplit, nb_classes):
     splitposition = int(len(totalset)*TVsplit)
     train = totalset[splitposition:]
     validate = totalset[:splitposition]
-    print("TVsplit:", TVsplit, "Training:", len(train), "Validation:", len(validate))
+    print("Training-Validation Split:", TVsplit, "Training:", len(train), "Validation:", len(validate))
 
     # pickle files to disk
     for each in train:
