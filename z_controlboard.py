@@ -13,7 +13,7 @@
 print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk.")
 print("Train: Trains on sorted data.")
 print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
-flag = input("Sort, Train or Predict? (s/t/p): ")
+flag = input("Sort, Train, Predict, Exit? (s/t/p/x): ")
 
 if flag == "t":
     predict = False
@@ -133,13 +133,15 @@ else:
     # tensorboard = TensorBoard(log_dir=os.path.join(root, 'tensorboard_logs', foldername))
 
     # returns Dice metric as proposed in https://arxiv.org/pdf/1606.04797.pdf
-    def channel_dice(channel, y_true, y_pred):
     # channel: an interger from 0 to nb_classes (the zeroth channel being background).
-        _epsilon = 10 ** -7 # prevents divide by zero.
-        intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel])
-        unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel])
+    def channel_dice(channel, y_true, y_pred):
+        _epsilon = 10 ** -7 # prevents divide by zero.                        
+        max_prediction = tf.math.reduce_max (y_pred,axis=-1,keepdims=True)
+        y_pred = tf.cast (tf.math.equal (y_pred, max_prediction),tf.float32)        
+        intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel], axis=(-1))
+        unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel], axis=(-1))
         dice_scores = (2.0 * intersections + _epsilon) / (unions + _epsilon)
-        return dice_scores
+        return tf.reduce_mean (dice_scores)
 
     def install_channel_dicemetric(channelindex, channelname):
         customMetric = partial(channel_dice, channelindex)
