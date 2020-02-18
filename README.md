@@ -11,7 +11,7 @@ For demonstration, this model segments brain and CSF. Metrics do not reflect res
 Steps:
 1. Install Anaconda from https://docs.anaconda.com/anaconda/install/
 2. Install Tensorflow >=2.0 and Nibabel >= 3.0.0 in your conda environment by typing the following into your terminal:
-   'pip install tensorflow' or
-   'pip install tensorflow-gpu' and
-   'pip install nibabel'
+   `pip install tensorflow` or
+   `pip install tensorflow-gpu` and
+   `pip install nibabel`
 3. Run z_controlboard.py
