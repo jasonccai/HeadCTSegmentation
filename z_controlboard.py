@@ -137,16 +137,16 @@ else:
     # early_stopping = EarlyStopping(monitor='val_loss', min_delta=0.01, patience=3, verbose=1, mode='auto', baseline=None, restore_best_weights=True)
     # tensorboard = TensorBoard(log_dir=os.path.join(root, 'tensorboard_logs', foldername))
 
-    # returns Dice metric as proposed in https://arxiv.org/pdf/1606.04797.pdf
-    # channel: an interger from 0 to nb_classes (the zeroth channel being background).
-    def channel_dice(channel, y_true, y_pred):
-        _epsilon = 10 ** -7 # prevents divide by zero.                        
-        max_prediction = tf.math.reduce_max (y_pred,axis=-1,keepdims=True)
-        y_pred = tf.cast (tf.math.equal (y_pred, max_prediction),tf.float32)        
-        intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel], axis=(-1))
-        unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel], axis=(-1))
-        dice_scores = (2.0 * intersections + _epsilon) / (unions + _epsilon)
-        return tf.reduce_mean (dice_scores)
+    # returns thresholded Dice                                                                # returns soft Dice (https://arxiv.org/pdf/1606.04797.pdf)
+    # channel: an interger from 0 to nb_classes (the zeroth channel being background).        #
+    def channel_dice(channel, y_true, y_pred)                                                 # def channel_dice(channel, y_true, y_pred):
+        _epsilon = 10 ** -7 # prevents divide by zero.                                        #    _epsilon = 10 ** -7
+        max_prediction = tf.math.reduce_max (y_pred,axis=-1,keepdims=True)                    #    intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel])
+        y_pred = tf.cast (tf.math.equal (y_pred, max_prediction),tf.float32)                  #    unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel])
+        intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel], axis=(-1))   #    dice_scores = (2.0 * intersections + _epsilon) / (unions + _epsilon)
+        unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel], axis=(-1))          #    return dice_scores
+        dice_scores = (2.0 * intersections + _epsilon) / (unions + _epsilon)                  #
+        return tf.reduce_mean (dice_scores)                                                   #
 
     def install_channel_dicemetric(channelindex, channelname):
         customMetric = partial(channel_dice, channelindex)
