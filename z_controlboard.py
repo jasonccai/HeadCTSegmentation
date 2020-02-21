@@ -139,14 +139,14 @@ else:
 
     # returns thresholded Dice                                                                # returns soft Dice (https://arxiv.org/pdf/1606.04797.pdf)
     # channel: an interger from 0 to nb_classes (the zeroth channel being background).        #
-    def channel_dice(channel, y_true, y_pred)                                                 # def channel_dice(channel, y_true, y_pred):
+    def channel_dice(channel, y_true, y_pred):                                                # def channel_dice(channel, y_true, y_pred):
         _epsilon = 10 ** -7 # prevents divide by zero.                                        #    _epsilon = 10 ** -7
-        max_prediction = tf.math.reduce_max (y_pred,axis=-1,keepdims=True)                    #    intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel])
-        y_pred = tf.cast (tf.math.equal (y_pred, max_prediction),tf.float32)                  #    unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel])
+        max_prediction = tf.math.reduce_max(y_pred,axis=-1, keepdims=True)                    #    intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel])
+        y_pred = tf.cast(tf.math.equal(y_pred, max_prediction), tf.float32)                   #    unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel])
         intersections = tf.reduce_sum(y_true[...,channel] * y_pred[...,channel], axis=(-1))   #    dice_scores = (2.0 * intersections + _epsilon) / (unions + _epsilon)
         unions = tf.reduce_sum(y_true[...,channel] + y_pred[...,channel], axis=(-1))          #    return dice_scores
         dice_scores = (2.0 * intersections + _epsilon) / (unions + _epsilon)                  #
-        return tf.reduce_mean (dice_scores)                                                   #
+        return tf.reduce_mean(dice_scores)                                                    #
 
     def install_channel_dicemetric(channelindex, channelname):
         customMetric = partial(channel_dice, channelindex)
