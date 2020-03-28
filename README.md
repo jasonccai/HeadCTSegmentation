@@ -9,7 +9,7 @@ Two volumes and their masks are included in the "image_data" and "mask_data" fol
 The model segments brain and CSF for this demonstration. Metrics do not reflect results as only one volume is used for training.
 
 Steps:
-1. Install Anaconda from https://docs.anaconda.com/anaconda/install/
+1. Install Anaconda from https://docs.anaconda.com/anaconda/install/ \
    If Anaconda is already installed on your system, we recommend that you create a new Python 3 environment by typing the        following into your terminal:
    `conda create -n myenv python=3.7` and\
    `conda activate myenv`
