@@ -24,4 +24,10 @@ Steps:
 
 If you do not have access to hardware for training and would like to see how this demo model performs on the test volume, the model's weights can be downloaded from https://drive.google.com/file/d/1xpuFGoQgGUdjejKDhBbXoj6oWfckEDcy/view?usp=sharing. Please extract this archive to the CTBrainSegmentation-master folder.
 
+print("To use this model, please download its weights from xxx and unzip them into the directory that this script is located in, then copy your images into the 'image_data_predict' folder.")
+print("The model's predictions will be written to the 'results_folder' with a corresponding timestamp.")
+
+# print("All scans should measure 512x512 voxels and be in the nifti container format.")
+# print("If you would like to train the model using your own data, uncomment lines xxx to xxx in this module.")
+
 ![Sample Predictions](https://github.com/jasonccai/CTBrainSegmentation/blob/master/Sample%20Performance.jpg)
