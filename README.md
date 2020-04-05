@@ -1,4 +1,4 @@
-##Python code accompanying the paper "Fully Automated Segmentation of Head CT Neuroanatomy Using Deep Learning".\
+## Python code accompanying the paper "Fully Automated Segmentation of Head CT Neuroanatomy Using Deep Learning".\
 Project Overview: https://jasonccai.github.io/CTBrainSegmentation/ \
 Paper: 
 
