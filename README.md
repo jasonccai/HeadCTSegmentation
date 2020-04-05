@@ -24,7 +24,7 @@ Further instructions are found in the module.
 
 If you would like to use the model in its training state, please comment lines 12-23 and uncomment lines 27-63 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.
 
-Alternate Installation Instructions:
-RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available here:
-The RIL-contour model is available here: http://link.to.weights
+Alternate Installation Instructions:\
+RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available here: https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9 \
+The RIL-contour model is available for download here: http://link.to.weights \
 A video on how to plug in this model into RIL-contour is available here:
