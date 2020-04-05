@@ -14,12 +14,17 @@ https://www.anaconda.com/distribution/#download-section
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
-Weights for the primary dataset only (42 normal examinations):\
-https://mctools-my.sharepoint.com/:u:/r/personal/cai_jason_mayo_edu/Documents/weights.hdf5?csf=1&web=1&e=rbc56K OR\
-Weights for the primary dataset and the iNPH dataset (42 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use):\
+Weights for the training dataset only (40 normal examinations):\
+http://link.to.weights OR\
+Weights for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use):\
 http://link.to.weights
 5. Open a terminal and type:\
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
 
 If you would like to use the model in its training state, please comment lines 12-23 and uncomment lines 27-63 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.
+
+Alternate Installation Instructions:
+RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available here:
+The RIL-contour model is available here: http://link.to.weights
+A video on how to plug in this model into RIL-contour is available here:
