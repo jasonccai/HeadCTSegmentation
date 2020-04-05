@@ -1,7 +1,7 @@
 ## Fully Automated Segmentation of Head CT Neuroanatomy Using Deep Learning
 
 (c) 2020, Mayo Clinic Radiology Informatics Lab\
-Project Overview: https://jasonccai.github.io/CTBrainSegmentation/ \
+Project Overview: https://jasonccai.github.io/CTBrainSegmentation/
 
 Installation Instructions:
 1. Install Anaconda from:
