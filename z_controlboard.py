@@ -7,51 +7,69 @@
 ##  Source code for the manuscript entitled:                                    ##
 ##  "Fully automated segmentation of head CT neuroanatomy using deep learning"  ##
 ##  Code has been updated to Tensorflow 2                                       ##
-##  For peer review only.                                                       ##
 ##################################################################################
 
-print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk.")
-print("Train: Trains on sorted data.")
-print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
+import os
+root = os.path.dirname(os.path.realpath(__file__))
+print("To use this model, please download its weights and unzip the hdf5 file into '" + root + "'.")
+print("The 'image_data_predict' folder contains 3 sample test volumes. You can also copy other scans into this folder. All scans should measure 512*512 voxels axially.")
+print("The model will write its predictions into 'results_folder' with a corresponding timestamp.")
+input("Press enter to start or 'Ctrl+C' to exit: ")
+predict= True
+sortimg = False
+weights = os.path.join(root, "weights.hdf5")
+testname = "MODEL"
+if not os.path.exists(os.path.join(root, "weights.hdf5")):
+    print("Weight file not found. Please ensure that you have placed the model's weights in the correct directory.")
+    raise SystemExit
 
-while True:
-    flag = input("Sort, Train, Predict, Exit? (s/t/p/x): ")
-    if flag == "t":
-        predict = False
-        sortimg = False
-        weights = ""
-        testname = input("Enter a name for this training session: ")
-        break
-    elif flag == "p":
-        predict= True
-        sortimg = False
-        weights = input("Enter full path to model weights: ")
-        slashpos = weights.find("TRAIN")
-        testname = weights[slashpos+6:-14]
-        break
-    elif flag == "s":
-        predict = False
-        sortimg = True
-        weights = ""
-        testname = ""
-        break
-    elif flag == "x":
-        raise SystemExit
-    else:
-        continue
-if ' ' in weights:
-    print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
-    raise SystemExit
-if "TRAIN" in testname:
-    print("'TRAIN' is reserved by the script. Please choose a different filename.")
-    raise SystemExit
+### To train using your own data, please comment the section above and uncomment the section below ###
+
+# import os
+# root = os.path.dirname(os.path.realpath(__file__))
+# print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk. All files should have the same filename.")
+# print("Train: Trains on sorted data.")
+# print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
+
+# while True:
+#     flag = input("Sort, Train, Predict, Exit? (s/t/p/x): ")
+#     if flag == "t":
+#         predict = False
+#         sortimg = False
+#         weights = ""
+#         testname = input("Enter a name for this training session: ")
+#         break
+#     elif flag == "p":
+#         predict= True
+#         sortimg = False
+#         weights = input("Enter full path to model weights: ")
+#         slashpos = weights.find("TRAIN")
+#         testname = weights[slashpos+6:-14]
+#         break
+#     elif flag == "s":
+#         predict = False
+#         sortimg = True
+#         weights = ""
+#         testname = ""
+#         break
+#     elif flag == "x":
+#         raise SystemExit
+#     else:
+#         continue
+# if ' ' in weights:
+#     print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
+#     raise SystemExit
+# if "TRAIN" in testname:
+#     print("'TRAIN' is reserved by the script. Please choose a different filename.")
+#     raise SystemExit
+
+##################################################################################
 
 import z_unetprepper as prepper
 from z_unet import unet
 import tensorflow as tf
 from tensorflow.keras.callbacks import CSVLogger, ModelCheckpoint, ReduceLROnPlateau, EarlyStopping, TensorBoard
 from tensorflow.keras.optimizers import Adam
-import os
 import datetime 
 from tensorflow.keras.utils import get_custom_objects
 from functools import partial
@@ -60,7 +78,6 @@ from functools import partial
 
 # sets up variables
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-root = os.path.dirname(os.path.realpath(__file__))
 images = "image_data"
 labels = "mask_data"
 preds = "image_data_predict"
@@ -84,19 +101,19 @@ if predict:
 ##################################################################################
 
 # sets up some basic hyperparameters
-nb_classes = 3 # number of classes (+1 for background)
-TVsplit = 0.5  # training-validation split (0 to 1), splits data from the "image_data" folder volume-wise, used when sorting data
+nb_classes = 12 # number of classes (+1 for background)
+TVsplit = 0  # training-validation split (0 to 1), splits data from the "image_data" folder volume-wise, used when sorting data
 loss = "categorical_crossentropy"
 optimizer = Adam(lr = 1e-4)
-epochs = 10
-batchsize = 3  # please reduce this if OOM error occurs
+epochs = 500
+batchsize = 12  # please reduce this if OOM error occurs
 
 # augmentation parameters
 augmentation = True
 rotation = 7        # in degrees
 translation_xy = 20 # in pixels
 scale_xy = 0.08     # in percentage
-flip_h = False      # AP flip
+flip_h = True       # AP flip, set to True to accommodate LAS and LPS orientations
 flip_v = True       # LR flip
 
 ##################################################################################
@@ -113,6 +130,7 @@ elif predict:
         testimages = P.loadpredict(testimagepath, each)
         predlabel = model.predict(testimages, batch_size=8, verbose=1)
         P.savepredict(predlabel, savefolder, each)
+    print("Prediction complete. Files saved in", savefolder + "/")
 
 else:
     # instantiate training generator
@@ -129,11 +147,12 @@ else:
     model = unet(nb_classes = nb_classes, savefolder = savefolder, flag = predict)
     if not weights=='':
         model.load_weights(weights, by_name=False)
+        print("Loading weights from", weights)
 
     # instantiate callbacks
     csv_logger = CSVLogger(os.path.join(savefolder, "Result.csv"))
     # lr_reducer = ReduceLROnPlateau(monitor='loss', min_delta=0.01, factor=0.5, verbose=1, cooldown=5, patience=25, min_lr=1e-10)
-    best_model = ModelCheckpoint(checkpointPath, verbose=1, monitor='loss', save_best_only=True, period=epochs, mode='auto', save_weights_only=True)
+    best_model = ModelCheckpoint(checkpointPath, verbose=1, monitor='loss', save_best_only=True, period=10, mode='auto', save_weights_only=True)
     # early_stopping = EarlyStopping(monitor='val_loss', min_delta=0.01, patience=3, verbose=1, mode='auto', baseline=None, restore_best_weights=True)
     # tensorboard = TensorBoard(log_dir=os.path.join(root, 'tensorboard_logs', foldername))
 
@@ -154,15 +173,24 @@ else:
         return [channelname]
     customMetrics = install_channel_dicemetric(1,"Brain")
     customMetrics += install_channel_dicemetric(2,"CSF")
+    customMetrics += install_channel_dicemetric(3,"DuraNSinus")
+    customMetrics += install_channel_dicemetric(4,"SeptumPellucidum")
+    customMetrics += install_channel_dicemetric(5,"Cerebellum")
+    customMetrics += install_channel_dicemetric(6,"Caudate")
+    customMetrics += install_channel_dicemetric(7,"Lentiform")
+    customMetrics += install_channel_dicemetric(8,"Insular")
+    customMetrics += install_channel_dicemetric(9,"InternalCapsule")
+    customMetrics += install_channel_dicemetric(10,"Ventricle")
+    customMetrics += install_channel_dicemetric(11,"CentralSulcus")
 
     model.compile(loss = loss, optimizer = optimizer, metrics=['accuracy'] + customMetrics, sample_weight_mode = "temporal")
- 
+
     if TVsplit:
         model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,
                             callbacks = [csv_logger, best_model], validation_data = V,
-                            max_queue_size = 10, workers = 1, use_multiprocessing = False)
+                            max_queue_size = 10, workers = 4, use_multiprocessing = True)
     else:
         model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,
                     callbacks = [csv_logger, best_model],
-                    max_queue_size = 10, workers = 1, use_multiprocessing = False)
+                    max_queue_size = 10, workers = 4, use_multiprocessing = True)
     print("Training complete. Weights saved in", savefolder)

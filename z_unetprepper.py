@@ -222,5 +222,4 @@ class Predict():
         result = nb.Nifti1Image(predlabel, self.affine, self.header)
         nb.save(result, savefolder + "/" + "Prediction_" + each)
         shutil.copyfile(self.testimagepath, savefolder + "/" + "Image_" + each)
-        print("Prediction complete. File saved in", savefolder + "/" + "Prediction_" + each)
         return
