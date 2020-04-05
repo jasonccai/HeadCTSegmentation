@@ -2,7 +2,6 @@
 
 (c) 2020, Mayo Clinic Radiology Informatics Lab\
 Project Overview: https://jasonccai.github.io/CTBrainSegmentation/ \
-Paper: \
 
 Installation Instructions:
 1. Install Anaconda from:
