@@ -14,7 +14,8 @@ https://www.anaconda.com/distribution/#download-section
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
-Weights for the primary dataset only (42 normal examinations) \ https://mctools-my.sharepoint.com/:u:/r/personal/cai_jason_mayo_edu/Documents/weights.hdf5?csf=1&web=1&e=rbc56K OR\
+Weights for the primary dataset only (42 normal examinations)
+https://mctools-my.sharepoint.com/:u:/r/personal/cai_jason_mayo_edu/Documents/weights.hdf5?csf=1&web=1&e=rbc56K OR\
 Weights for the primary dataset and the iNPH dataset (12 examinations demonstrating ventricular enlargement) (Recommended for routine use)
 5. Open a terminal and type:\
 `python /path/to/z_controlboard.py`\
