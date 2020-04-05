@@ -20,4 +20,4 @@ Weights for the primary dataset and the iNPH dataset (12 examinations demonstrat
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
 
-If you would like to use the model in its training state, please comment lines 12-23 and uncomment lines 27-63 in `z_controlboard.py`.
+If you would like to use the model in its training state, please comment lines 12-23 and uncomment lines 27-63 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders to demonstrate our code.
