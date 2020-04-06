@@ -21,7 +21,7 @@ OR\
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
 
-If you would like to use the model in its training state, please comment lines 12-23 and uncomment lines 27-63 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.\
+If you would like to use the model in its training state, please comment lines 12-24 and uncomment lines 28-56 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.\
 Please note that SciPy is required for the image augmentation module (`pip install scipy`).
 
 ### Alternate Installation Instructions:
