@@ -25,43 +25,35 @@ if not os.path.exists(os.path.join(root, "weights.hdf5")):
 
 ### To train using your own data, please comment the section above and uncomment the section below ###
 
-# import os
-# root = os.path.dirname(os.path.realpath(__file__))
-# print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk. All files should have the same filename.")
-# print("Train: Trains on sorted data.")
-# print("Predict: Makes predictions on Nifti files in the 'image_data_predict' folder.")
+#import os
+#root = os.path.dirname(os.path.realpath(__file__))
+#print("Sort (first step): Reads Nifti files from the 'image_data' and 'mask_data' folders and sorts them to disk. All files should have the same filename.")
+#print("Train: Trains on sorted data.")
 
-# while True:
-#     flag = input("Sort, Train, Predict, Exit? (s/t/p/x): ")
-#     if flag == "t":
-#         predict = False
-#         sortimg = False
-#         weights = ""
-#         testname = input("Enter a name for this training session: ")
-#         break
-#     elif flag == "p":
-#         predict= True
-#         sortimg = False
-#         weights = input("Enter full path to model weights: ")
-#         slashpos = weights.find("TRAIN")
-#         testname = weights[slashpos+6:-14]
-#         break
-#     elif flag == "s":
-#         predict = False
-#         sortimg = True
-#         weights = ""
-#         testname = ""
-#         break
-#     elif flag == "x":
-#         raise SystemExit
-#     else:
-#         continue
-# if ' ' in weights:
-#     print("Please ensure that no spaces are present in the weights path (including the end of the path string).")
-#     raise SystemExit
-# if "TRAIN" in testname:
-#     print("'TRAIN' is reserved by the script. Please choose a different filename.")
-#     raise SystemExit
+#while True:
+#    flag = input("Sort, Train, Exit? (s/t/x): ")
+#    if flag == "t":
+#        predict = False
+#        sortimg = False
+#        weights = ""     # You may enter the path to a weight file here if performing transfer learning.
+#        testname = input("Enter a name for this training session (no space): ")
+#        break
+#    elif flag == "s":
+#        predict = False
+#        sortimg = True
+#        weights = ""
+#        testname = ""
+#        break
+#    elif flag == "x":
+#        raise SystemExit
+#    else:
+#        continue
+#if ' ' in testname:
+#    print("Please ensure that no spaces are present in the name of the training session.")
+#    raise SystemExit
+#if "TRAIN" in testname:
+#    print("'TRAIN' is reserved by the script. Please choose a different filename.")
+#    raise SystemExit
 
 ##################################################################################
 
@@ -106,7 +98,7 @@ TVsplit = 0  # training-validation split (0 to 1), splits data from the "image_d
 loss = "categorical_crossentropy"
 optimizer = Adam(lr = 1e-4)
 epochs = 500
-batchsize = 12  # please reduce this if OOM error occurs
+batchsize = 3  # please reduce this if OOM error occurs
 
 # augmentation parameters
 augmentation = True
