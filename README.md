@@ -23,7 +23,7 @@ http://link.to.weights
 Further instructions are found in the module.
 
 If you would like to use the model in its training state, please comment lines 12-23 and uncomment lines 27-63 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.\
-Please note that SciPy is required for the image augmentation module (`pip install SciPy`)
+Please note that SciPy is required for the image augmentation module (`pip install scipy`).
 
 ### Alternate Installation Instructions:
 • RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available here: https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9 \
