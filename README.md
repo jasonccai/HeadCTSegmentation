@@ -14,14 +14,14 @@ https://www.anaconda.com/distribution/#download-section
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
-[Weights](http://link.to.weights) for the training dataset only (40 normal examinations):\
+[Weights](http://link.to.weights) for the training dataset only (40 normal examinations).\
 OR\
-[Weights](http://link.to.weights) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use):\
+[Weights](http://link.to.weights) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use).
 5. Open a terminal and type:\
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
 
-If you would like to use the model in its training state, please comment lines 12-24 and uncomment lines 28-56 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.\
+If you would like to use the model in its training state, please comment out lines 12-24 and uncomment lines 28-56 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.\
 Please note that SciPy is required for the image augmentation module (`pip install scipy`).
 
 ### Alternate Installation Instructions:
