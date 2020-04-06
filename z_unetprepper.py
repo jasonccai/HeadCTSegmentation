@@ -85,7 +85,7 @@ def sort(root, images, labels, TVsplit, nb_classes):
     with open (savepath, "wb+") as file:
         pickle.dump(att_clswt, file)
 
-    print("Files sorted into '0_sorted' directory. The model can be trained now.")
+    print("Files sorted into '0_sorted' directory. The model can be trained now. Please rerun the module in training mode.")
 
 class Prep(): # Reads from the "0_sorted" directory and returns a list of training and validation files
     def __init__(self, root):
