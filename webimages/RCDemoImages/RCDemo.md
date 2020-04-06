@@ -1,6 +1,6 @@
 ## Instructions to run the segmentation model in RIL-Contour
 
-1. The instructions for installing RIL-Contour and creating a project can be found at https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9 \
+1. The instructions for installing RIL-Contour and creating a project can be found at https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9
 2. Open the volume to be segmented.
 ![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/2.png?raw=true)
 3. Click on the "ML" tab > "Model Manager".
