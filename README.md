@@ -14,10 +14,9 @@ https://www.anaconda.com/distribution/#download-section
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
-Weights for the training dataset only (40 normal examinations):\
-http://link.to.weights OR\
-Weights for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use):\
-http://link.to.weights
+[Weights](http://link.to.weights) for the training dataset only (40 normal examinations):\
+OR\
+[Weights](http://link.to.weights) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use):\
 5. Open a terminal and type:\
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
@@ -26,6 +25,6 @@ If you would like to use the model in its training state, please comment lines 1
 Please note that SciPy is required for the image augmentation module (`pip install scipy`).
 
 ### Alternate Installation Instructions:
-• RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available here: https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9 \
-• The RIL-contour version of this model is available here: http://link.to.weights \
-• A tutorial showing how to plug this model into RIL-contour is available here: https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/RCDemo.html
+• RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9). \
+• The RIL-contour version of this model is available [here](http://link.to.weights). \
+• A tutorial showing how to plug this model into RIL-contour is available [here](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/RCDemo.md).
