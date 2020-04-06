@@ -28,4 +28,4 @@ Please note that SciPy is required for the image augmentation module (`pip insta
 ### Alternate Installation Instructions:
 • RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available here: https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9 \
 • The RIL-contour version of this model is available here: http://link.to.weights \
-• A video showing how to plug this model into RIL-contour is available here:
+• A tutorial showing how to plug this model into RIL-contour is available here: https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/RCDemo.html
