@@ -1,1 +1,2 @@
-(the 3 fully annotated volumes from the RSNA dataset will be uploaded here when the paper is published)
+The 3 fully annotated volumes from the RSNA dataset will be uploaded here when the paper is published.
+They have been made available for reviewers through a separate link.
