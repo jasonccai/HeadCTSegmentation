@@ -94,11 +94,11 @@ if predict:
 
 # sets up some basic hyperparameters
 nb_classes = 12 # number of classes (+1 for background)
-TVsplit = 0  # training-validation split (0 to 1), splits data from the "image_data" folder volume-wise, used when sorting data
+TVsplit = 0.2   # training-validation split (0 to 1), splits data from the "image_data" folder volume-wise, used when sorting data
 loss = "categorical_crossentropy"
 optimizer = Adam(lr = 1e-4)
 epochs = 500
-batchsize = 3  # please reduce this if OOM error occurs
+batchsize = 3   # please reduce this if OOM error occurs
 
 # augmentation parameters
 augmentation = True
@@ -179,10 +179,10 @@ else:
 
     if TVsplit:
         model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,
-                            callbacks = [csv_logger, best_model], validation_data = V,
-                            max_queue_size = 10, workers = 4, use_multiprocessing = True)
+                            callbacks = [csv_logger, best_model], validation_data = V,     # include other callbacks as needed
+                            max_queue_size = 10, workers = 1, use_multiprocessing = False) # adjust these parameters to your hardware to maximize performance
     else:
-        model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,
-                    callbacks = [csv_logger, best_model],
-                    max_queue_size = 10, workers = 4, use_multiprocessing = True)
+        model.fit_generator(generator = T, epochs = epochs, verbose = 1, shuffle = True,   # this call does not perform validation (used if TVsplit set to 0)
+                    callbacks = [csv_logger, best_model],                                  # include other callbacks as needed
+                    max_queue_size = 10, workers = 1, use_multiprocessing = False)         # adjust these parameters to your hardware to maximize performance
     print("Training complete. Weights saved in", savefolder)
