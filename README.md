@@ -16,7 +16,7 @@ https://www.anaconda.com/distribution/#download-section
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
 [Weights](http://placeholder.link/weights.will.be.available.after.work.is.published) for the training dataset only (40 normal examinations).\
 OR\
-[Weights](http://placeholder.link/weights.will.be.available.after.work.is.published) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement) (Recommended for routine use).
+[Weights](http://placeholder.link/weights.will.be.available.after.work.is.published) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement; recommended for routine use).
 5. Open a terminal and type:\
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
@@ -25,6 +25,6 @@ If you would like to use the model in its training state, please comment out lin
 Please note that SciPy is required for the image augmentation module (`pip install scipy`).
 
 ### Alternate Installation Instructions:
-• RIL-contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-contour are available [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9). \
-• The RIL-contour version of this model is available [here](http://placeholder.link/weights.will.be.available.after.work.is.published). \
-• A tutorial showing how to plug this model into RIL-contour is available [here](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/RCDemo.md).
+• RIL-Contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-Contour are available [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9). \
+• The RIL-Contour version of this model is available [here](http://placeholder.link/weights.will.be.available.after.work.is.published). \
+• A tutorial showing how to plug this model into RIL-Contour is available [here](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/RCDemo.md).
