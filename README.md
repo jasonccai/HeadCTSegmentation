@@ -10,7 +10,7 @@ https://www.anaconda.com/distribution/#download-section
 `conda create -n py36 python=3.6`\
 `conda activate py36`
 3. Install Tensorflow and Nibabel using:\
-`pip install tensorflow==2.0.0`\
+`pip install tensorflow==2.2.0`\
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
