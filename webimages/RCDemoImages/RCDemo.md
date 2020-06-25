@@ -1,19 +1,18 @@
 ## Instructions to run the segmentation model in RIL-Contour
 
 1. The instructions for installing RIL-Contour and creating a project can be found [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9).
-2. Open the volume to be segmented.
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/2.png?raw=true)
-3. Click on the "ML" tab > "Model Manager".
-4. Click on "New".
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/3.png?raw=true)
-5. Click on "Select Keras Model".
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/4.png?raw=true)
-6. Navigate to the folder where the model was downloaded to and click “Open”.
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/5.png?raw=true)
-7. After the model has been loaded, give a name to the model under "Model Name" and click "OK".
+2. Select the volume to be segmented, then click on "ML" > "Model Manager".
+![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/1.png?raw=true)
+3. Click on "Import".
+![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/2.png?raw=true)
+4. Download the RIL-Contour model from [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9) and unzip it.
+4. Navigate to the directory containing the unzipped RIL-Contour model. Do not select the model files. Click on "Choose".
+![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/3.png?raw=true)
+5. Click the drop down arrow beside "Segmentation". Select the "HeadCTSegmentation" model. Click on "Import Model".
+![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/4.png?raw=true)
+6. Click on "ML" > "Apply Model".
+![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/1.png?raw=true)
+7.  Click the drop down arrow beside "Segmentation". Select the "HeadCTSegmentation" model. Click on "Apply Model" and wait for a few seconds.
 ![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/6.png?raw=true)
-8. You will now see the model appear under the "Segmentation" list. Click "Close".
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/7.png?raw=true)
-9. Click on the "ML" tab > "Apply Model". The segmentation will be automatically generated.
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/8.png?raw=true)
-![](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/9.png?raw=true)
+8. The segmentation will be automatically generated.
+![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/6.png?raw=true)
