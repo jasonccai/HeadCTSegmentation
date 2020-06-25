@@ -6,7 +6,7 @@
 3. Click on "Import".
 ![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/2.png?raw=true)
 4. Download the RIL-Contour model from [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9) and unzip it.
-4. Navigate to the directory containing the unzipped RIL-Contour model. Click on "Choose".
+4. Navigate to the directory containing the unzipped RIL-Contour model. Do not select any files in the directory. Click on "Choose".
 ![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/3.png?raw=true)
 5. Click the drop down arrow beside "Segmentation". Select the "HeadCTSegmentation" model. Click on "Import Model". Click on "Close" to return to the main screen.
 ![](https://github.com/jasonccai/HeadCTSegmentation/blob/master/webimages/RCDemoImages/4.png?raw=true)
