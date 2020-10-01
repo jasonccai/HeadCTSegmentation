@@ -14,9 +14,9 @@ https://www.anaconda.com/distribution/#download-section
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
 5. Download the model's weights and place them in the same folder as `z_controlboard.py`\
-[Weights](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/weights.md) for the training dataset only (40 normal examinations).\
+[Weights](https://drive.google.com/file/d/1h-mS_JywoBotS_qT88ob0qfzYfEqu0vS/view?usp=sharing) for the training dataset only (40 normal examinations).\
 OR\
-[Weights](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/weights.md) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement; recommended for routine use).
+[Weights](https://drive.google.com/file/d/1fSe7oDaE8NYh5GLUN6h-Yo-ZlrJHXeuZ/view?usp=sharing) for the primary dataset and the iNPH dataset (50 normal examinations + 12 examinations demonstrating ventricular enlargement; recommended for routine use).
 5. Open a terminal and type:\
 `python /path/to/z_controlboard.py`\
 Further instructions are found in the module.
