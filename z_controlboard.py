@@ -6,6 +6,7 @@
 ## ---------------------------------------------------------------------------- ##
 ##  Source code for the manuscript entitled:                                    ##
 ##  "Fully automated segmentation of head CT neuroanatomy using deep learning"  ##
+##  https://doi.org/10.1148/ryai.2020190183                                     ##
 ##  Code has been updated to Tensorflow 2                                       ##
 ##################################################################################
 
