@@ -12,7 +12,7 @@
 import os
 root = os.path.dirname(os.path.realpath(__file__))
 print("To use this model, please download its weights and unzip the hdf5 file into '" + root + "'.")
-print("The 'image_data_predict' folder contains 3 sample test volumes. You can also copy other scans into this folder. All scans should measure 512*512 voxels axially.")
+print("Place the volumes to be segmented into the 'image_data_predict' folder. All volumes should measure 512*512 voxels axially.")
 print("The model will write its predictions into 'results_folder' with a corresponding timestamp.")
 input("Press enter to start or 'Ctrl+C' to exit: ")
 predict= True
