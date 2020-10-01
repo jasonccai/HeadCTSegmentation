@@ -4,12 +4,13 @@
 [Project Overview](https://jasonccai.github.io/HeadCTSegmentation)
 
 ### Installation Instructions:
-1. Install Anaconda from:
-https://www.anaconda.com/distribution/#download-section
-2. (Recommended) Create a new python 3.6 environment using:\
-`conda create -n py36 python=3.6`\
-`conda activate py36`
-3. Install Tensorflow and Nibabel using:\
+1. Install Python 3.6 from:
+https://www.python.org/downloads/
+2. (Recommended) In a terminal, create a new Python environment using venv:\
+`python3 -m venv py36`\
+`source py36/bin/activate`\
+`pip install -U pip`
+3. Install Tensorflow and Nibabel into the newly-created "py36" environment using:\
 `pip install tensorflow==2.2.0`\
 `pip install nibabel`
 4. Clone the GitHub repository to disk.
@@ -32,4 +33,6 @@ Please note that SciPy is required for the image augmentation module (`pip insta
 JC Cai, Z Akkus, KA Philbrick, A Boonrod, S Hoodeshenas, AD Weston, P Rouzrokh, GM Conte, A Zeinoddini, DC Vogelsang, Q Huang, BJ Erickson\
 *“Fully Automated Segmentation of Neuroanatomy on Head CT Using Deep Learning”*\
 Radiol Artif Intell. 2020 Sep; 2(5):e190183. [https://doi.org/10.1148/ryai.2020190183](https://doi.org/10.1148/ryai.2020190183)\
-Click [here](https://pubs.rsna.org/action/showCitFormats?doi=10.1148%2Fryai.2020190183) to download citation data.
+Click [here](https://pubs.rsna.org/action/showCitFormats?doi=10.1148%2Fryai.2020190183) to download citation data.\
+\
+For inquires, please email cai.jason@mayo.edu
