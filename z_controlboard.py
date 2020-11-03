@@ -94,7 +94,7 @@ if predict:
 ##################################################################################
 
 # sets up some basic hyperparameters
-nb_classes = 12 # number of classes (+1 for background)
+nb_classes = 17 # number of classes (+1 for background)
 TVsplit = 0     # training-validation split (0 to 1), splits data from the "image_data" folder volume-wise, used when sorting data
 loss = "categorical_crossentropy"
 optimizer = Adam(lr = 1e-4)
