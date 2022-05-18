@@ -35,4 +35,4 @@ JC Cai, Z Akkus, KA Philbrick, A Boonrod, S Hoodeshenas, AD Weston, P Rouzrokh, 
 Radiol Artif Intell. 2020 Sep; 2(5):e190183. [https://doi.org/10.1148/ryai.2020190183](https://doi.org/10.1148/ryai.2020190183)\
 Click [here](https://pubs.rsna.org/action/showCitFormats?doi=10.1148%2Fryai.2020190183) to download citation data.\
 \
-For inquires, please email jason.cai@outlook.com
+For inquires, please email jason.cai outlook com
