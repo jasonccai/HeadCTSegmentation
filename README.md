@@ -25,14 +25,8 @@ Further instructions are found in the module.
 If you would like to use the model in its training state, please comment out lines 12-24 and uncomment lines 28-56 in `z_controlboard.py`. We provided 3 sample volumes in the "image_data" and "mask_data" folders for this demonstration.\
 Please note that SciPy is required for the image augmentation module (`pip install scipy`).
 
-### Alternate Installation Instructions:
-• RIL-Contour is a medical image annotation tool developed by our lab. It can run Tensorflow Keras models through a user interface. The instructions for downloading, installing and navigating RIL-Contour are available [here](https://www.youtube.com/playlist?list=PLDlybKi3CLGibnrPIlzWInqBEgtPw1ie9). \
-• A tutorial showing how to run our model in RIL-Contour is available [here](https://github.com/jasonccai/CTBrainSegmentation/blob/master/webimages/RCDemoImages/RCDemo.md).
-
 ### Citation:
 JC Cai, Z Akkus, KA Philbrick, A Boonrod, S Hoodeshenas, AD Weston, P Rouzrokh, GM Conte, A Zeinoddini, DC Vogelsang, Q Huang, BJ Erickson\
 *“Fully Automated Segmentation of Neuroanatomy on Head CT Using Deep Learning”*\
 Radiol Artif Intell. 2020 Sep; 2(5):e190183. [https://doi.org/10.1148/ryai.2020190183](https://doi.org/10.1148/ryai.2020190183)\
 Click [here](https://pubs.rsna.org/action/showCitFormats?doi=10.1148%2Fryai.2020190183) to download citation data.\
-\
-For inquires, please email jason.cai outlook com
